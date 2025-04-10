@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunFund SA - Crowdfunding Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Fun<span>Fund</span> SA</h1>
+            <p>Supporting Your dreams!</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#projects">Browse Projects</a></li>
+                <li><a href="#create">Start a Project</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Bring Your Ideas to Life!</h2>
+                <p>Join our community of local dreamers and supporters with secure bank payments.</p>
+                <a href="#create" class="cta-button">Start Your Project</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/colourwheel.jpg" alt="Colorful wheel">
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid" id="projects-grid">
+                
+            </div>
+        </section>
+
+        <section id="create" class="create-section">
+            <h2>Create Your Project</h2>
+            <form id="project-form">
+                <div class="form-group">
+                    <label for="project-name">Project Name</label>
+                    <input type="text" id="project-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-desc">Description</label>
+                    <textarea id="project-desc" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="project-goal">Funding Goal (ZAR)</label>
+                    <input type="number" id="project-goal" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-category">Category</label>
+                    <select id="project-category">
+                        <option value="art">Art & Culture</option>
+                        <option value="tech">Technology</option>
+                        <option value="food">Food & Agriculture</option>
+                        <option value="education">Education</option>
+                        <option value="community">Community</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="project-color">Choose a theme color</label>
+                    <input type="color" id="project-color" value="#ff6b6b">
+                </div>
+                <button type="submit" class="cta-button">Launch Project!</button>
+            </form>
+        </section>
+    </main>
+
+    
+    <div id="bank-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-project-title">Support This Project</h2>
+            <div class="payment-options">
+                <div class="payment-method active" data-method="eft">
+                    <i class="fas fa-university"></i>
+                    <span>Bank EFT</span>
+                </div>
+                <div class="payment-method" data-method="card">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Card Payment</span>
+                </div>
+            </div>
+            
+            <div id="eft-form" class="payment-form">
+                <h3>Bank Transfer Details</h3>
+                <p>Use these details for your bank transfer:</p>
+                <div class="bank-details">
+                    <p><strong>Bank:</strong> Standard Bank (South Africa)</p>
+                    <p><strong>Account Name:</strong> FunFund SA Trust Account</p>
+                    <p><strong>Account Number:</strong> 1234567890</p>
+                    <p><strong>Branch Code:</strong> 051001</p>
+                    <p><strong>Reference:</strong> <span id="project-reference">PROJ123</span></p>
+                    <p><strong>Amount:</strong> ZAR <span id="payment-amount">0.00</span></p>
+                </div>
+                <button id="confirm-eft" class="cta-button">I've Made the Transfer</button>
+            </div>
+            
+            <div id="card-form" class="payment-form" style="display:none;">
+                <h3>Card Payment</h3>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry-date">Expiry Date</label>
+                        <input type="text" id="expiry-date" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123">
+                    </div>
+                </div>
+                <button id="confirm-card" class="cta-button">Pay ZAR <span id="card-amount">0.00</span></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 FunFund SA - A proudly South African crowdfunding platform</p>
+        <div class="bank-logos">
+            <img src="images/StandardBank.png" alt="Standard Bank" style="height: 30px;">
+            <img src="images/ABSA.png" alt="Absa" style="height: 30px;">
+            <img src="images/FNB.png" alt="FNB" style="height: 30px;">
+            
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
